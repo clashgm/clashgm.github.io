@@ -1,1 +1,439 @@
-<h1>Clash Hello look at say goodbey</h1>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>免费节点-DSOCKS机场</title>
+    <meta name="description" content="【DSOCKS机场VPN】以光子晶体科技重构网络架构，搭载「DSOCKSClash」光核引擎，首创晶格隧道协议，数据如激光脉冲在千万+DSOCKS节点间沿光子带隙轨迹无损跃迁。登录DSOCKS官网激活「光轨梯子」，全球节点覆盖8K全息直播、量子加密通信等前沿场景，独创「光谱订阅」系统通过布拉格衍射算法实时解算抗干扰光路，配合DSOCKS加速器的超流增压技术，跨国传输速率达99.99%光速。全平台内置「光子茧加密层」，VPN流量伪装成激光干涉图谱，独创光斑动态伪装系统每皮秒刷新IP波长坐标。支持脑机接口与量子卫星终端直连，DSOCKS订阅实时同步抗黑洞级干扰节点库，独家「光子矩阵模式」可激活百万条并行不可逆加密光链。访问DSOCKS官网，驾驭光子洪流重塑网络传输的终极边界！">
+    <meta name="keywords" content="DSOCKS机场,DSOCKS机场vpn,DSOCKS机场加速器">
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+    :root {
+        --primary: #00ff88;
+        --dark-bg: #0a192f;
+        --card-bg: #172a45;
+        --text-primary: #ccd6f6;
+        --hover-effect: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', system-ui;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: var(--dark-bg);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    /* 导航栏 */
+    header {
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        background: rgba(10, 25, 47, 0.98);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .logo {
+        color: var(--primary);
+        font-size: 1.5rem;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: 1px solid var(--primary);
+        color: var(--primary);
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* 主按钮样式 */
+    .glow-btn {
+        display: inline-flex;
+        padding: 12px 30px;
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        position: relative;
+        overflow: hidden;
+        transition: var(--hover-effect);
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 4px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .glow-btn:hover {
+        background: var(--primary);
+        color: var(--dark-bg);
+        box-shadow: 0 0 20px var(--primary);
+    }
+
+    /* 主内容区 */
+    .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 20px 60px;
+        background: linear-gradient(45deg,
+            rgba(10, 25, 47, 0.95),
+            rgba(10, 25, 47, 0.85)),
+            url('https://source.unsplash.com/random/1920x1080/?cyberpunk,neon') center/cover;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* 价格方案 */
+    .pricing-section {
+        padding: 4rem 0;
+    }
+
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .price-card {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 12px;
+        transition: var(--hover-effect);
+        border: 1px solid rgba(0, 255, 136, 0.1);
+    }
+
+    .price-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+    }
+
+    /* 节点状态 */
+    .nodes-section {
+        padding: 4rem 0;
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .node-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .node-card {
+        background: var(--card-bg);
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: var(--hover-effect);
+    }
+
+    .node-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* 用户评价 */
+    .testimonials-section {
+        padding: 4rem 0;
+    }
+
+    .testimonial-slider {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .review-box {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-left: 4px solid var(--primary);
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    /* 页脚 */
+    footer {
+        background: var(--card-bg);
+        padding: 3rem 20px;
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: var(--hover-effect);
+    }
+
+    .footer-links a:hover {
+        color: var(--primary);
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--dark-bg);
+            flex-direction: column;
+            padding: 1rem;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .hero-section {
+            padding: 100px 20px 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.2rem !important;
+        }
+
+        .node-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        html {
+            font-size: 15px;
+        }
+
+        header {
+            padding: 0.8rem;
+        }
+
+        .hero-content h1 {
+            font-size: 1.8rem !important;
+            line-height: 1.3;
+        }
+
+        .glow-btn {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .node-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .pricing-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .price-card {
+            padding: 1.5rem;
+        }
+    }
+
+    @media (max-width: 360px) {
+        html {
+            font-size: 14px;
+        }
+
+        .hero-section {
+            padding-top: 80px;
+        }
+
+        .glow-btn {
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo">DSOCKS机场</a>
+            <button class="menu-toggle">☰</button>
+            <div id="070SHWmAzU" class="nav-links">
+                <a href="#features">功能特性</a>
+                <a href="#pricing">套餐价格</a>
+                <a href="#nodes">节点状态</a>
+                <a href="https://china-vpn.cc" class="glow-btn">立即连接</a>
+            </div>
+        </nav>
+    </header>
+    <section class="hero-section" id="home">
+        <div id="cVce19ZfDu" class="hero-content">
+            <h1 style="font-size: 3rem; margin-bottom: 1.5rem; color: var(--primary);">
+                DSOCKS机场 Pro
+            </h1>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
+                🚀 全球2000+高速节点 | 军用级加密 | 超低延迟
+            </p>
+            <div id="uQHzcuhAIp" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://china-vpn.cc" class="glow-btn">立即注册</a>
+                <a href="#pricing" class="glow-btn">查看套餐</a>
+            </div>
+        </div>
+    </section>
+    <section class="pricing-section" id="pricing">
+        <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">专属套餐</h2>
+        <div id="xGRscDjbfN" class="pricing-grid">
+            <div id="zyVOIjb7VF" class="price-card">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">基础版</h3>
+                <div id="h6ehmDJgTF" style="font-size: 2.5rem; color: var(--primary); margin: 1.5rem 0;">
+                    <sup>¥</sup>29<span style="font-size: 1rem;">/月</span>
+                </div>
+                <ul style="list-style: none; margin: 2rem 0;">
+                    <li style="padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">✔ 50+ 国家节点</li>
+                    <li style="padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">✔ 1080P 视频支持</li>
+                    <li style="padding: 0.8rem 0;">✔ 3 设备同时在线</li>
+                </ul>
+                <button class="glow-btn" style="width: 100%;">立即订阅</button>
+            </div>
+            <div id="6QrRfqzrBW" class="price-card" style="border: 2px solid var(--primary);">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">专业版</h3>
+                <div id="q2aLze4q63" style="font-size: 2.5rem; color: var(--primary); margin: 1.5rem 0;">
+                    <sup>¥</sup>59<span style="font-size: 1rem;">/月</span>
+                </div>
+                <ul style="list-style: none; margin: 2rem 0;">
+                    <li style="padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">✔ 100+ 国家节点</li>
+                    <li style="padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">✔ 4K 超清支持</li>
+                    <li style="padding: 0.8rem 0;">✔ 5 设备同时在线</li>
+                </ul>
+                <button class="glow-btn" style="width: 100%; background: var(--primary); color: var(--dark-bg);">
+                    立即订阅
+                </button>
+            </div>
+            <div id="IwzxTv8nyS" class="price-card">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">旗舰版</h3>
+                <div id="gOhP1vHWA8" style="font-size: 2.5rem; color: var(--primary); margin: 1.5rem 0;">
+                    <sup>¥</sup>99<span style="font-size: 1rem;">/月</span>
+                </div>
+                <ul style="list-style: none; margin: 2rem 0;">
+                    <li style="padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">✔ 200+ 国家节点</li>
+                    <li style="padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">✔ 8K 超清支持</li>
+                    <li style="padding: 0.8rem 0;">✔ 10 设备同时在线</li>
+                </ul>
+                <button class="glow-btn" style="width: 100%;">立即订阅</button>
+            </div>
+        </div>
+    </section>
+    <section class="nodes-section" id="nodes">
+        <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">全球节点</h2>
+        <div id="BxHcvU1vRF" class="node-grid">
+            <div id="vvUifBiG6V" class="node-card">
+                <div id="OfK2eFaiDX" style="color: var(--primary); font-size: 1.2rem;">🇺🇸 美国硅谷</div>
+                <div id="W5APjDI1Or" style="margin-top: 0.5rem;">延迟 58ms</div>
+                <div id="Ev4w3h5cjg" style="color: #00ff88; font-size: 0.9rem; margin-top: 0.5rem;">● 在线</div>
+            </div>
+            <!-- 更多节点卡片... -->
+        </div>
+    </section>
+    <section class="testimonials-section">
+        <div id="lopk7if8Ix" class="testimonial-slider">
+            <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary);">用户评价</h2>
+            <div id="ZOhhLUnm4S" class="review-box">
+                <p style="font-style: italic; margin-bottom: 1rem;">
+                    "DSOCKS机场从没想过加速效果这么明显，直播延迟直接降到50ms以下！"
+                </p>
+                <div id="vrLs8noCJf" style="color: var(--primary);">
+                    ⭐⭐⭐⭐⭐ 电竞选手 · 李
+                </div>
+            </div>
+            <!-- 更多评价卡片... -->
+        </div>
+    </section>
+    <footer>
+        <div id="IIY0PRCt9I" class="footer-links">
+            <a href="#home">首页</a>
+            <a href="#features">功能</a>
+            <a href="#pricing">价格</a>
+            <a href="#contact">联系</a>
+        </div>
+        <div id="56HSqIllxS" style="color: #8892b0; margin-top: 2rem;">
+            © 2023 DSOCKS机场 Technologies | 访问次数: <span id="visitCount">0</span>
+        </div>
+    </footer>
+    <script>
+    // 移动端菜单切换
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    // 访问计数器
+    let visitCount = localStorage.getItem('visitCount') || 0;
+    visitCount++;
+    localStorage.setItem('visitCount', visitCount);
+    document.getElementById('visitCount').textContent = visitCount;
+
+    // 关闭移动端菜单
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.remove('active');
+        });
+    });
+    </script>
+</body>
+
+</html> DSOCKS机场 DSOCKS机场vpn DSOCKS机场官网入口 DSOCKS机场clash DSOCKS机场节点订阅 DSOCKS机场订阅购买 DSOCKS机场app下载 DSOCKS机场节点分享
